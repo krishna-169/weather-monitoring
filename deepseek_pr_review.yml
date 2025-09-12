@@ -1,0 +1,15 @@
+name: DeepSeek Code Review
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DeepSeek Code Review
+        uses: hustcer/deepseek-review@main
+        with:
+          chat-token: ${{ secrets.DEEPSEEK_API_KEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
